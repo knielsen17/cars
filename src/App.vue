@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/product">Product</router-link> |
+      <router-link to="/product/1">Product</router-link> |
       <router-link to="/cart">Cart</router-link>
     </div>
     <router-view />
@@ -11,6 +11,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+    }
+  },
+  computed: {
+  },
+};
+</script>
 
 <style>
 #app {
