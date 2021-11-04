@@ -4,7 +4,6 @@
     <div class="product" v-for="product in products" :key="product.id">
       <div class="info">
         <h1>{{product.name}}</h1>
-        <p>{{product.country}}</p>
       </div>
       <div class="image">
         <router-link :to="'/product/' + product.id">
@@ -13,9 +12,8 @@
       </div>
       <div class="price">
         <h2>{{product.price}}</h2>
-        <router-link :to="'/product/' + product.id">
-          <button class="auto">View Vehicle</button>
-        </router-link>
+        <h2>{{product.engine}}</h2>
+        <button class=auto v-on:click="removeCart(product)">Remove From Cart</button>
       </div>
     </div>
   </div>
@@ -24,23 +22,14 @@
 
 <script>
 export default {
-  name: 'ProductList',
+  name: 'CartList',
   props: {
     products: Array
   },
   methods: {
+    removeCart(product) {
+      this.$root.$data.cart.splice(this.$root.$data.cart.indexOf(product), 1);
+    },
   },
 }
 </script>
-
-<style>
-.product img {
-  border: 2px solid #333;
-  height: 250px;
-  width: 350px;
-  object-fit: cover;
-}
-.product {
-  margin: 50px;
-}
-</style>

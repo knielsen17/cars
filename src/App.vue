@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/product/1">Product</router-link> |
-      <router-link to="/cart">Cart</router-link>
+      <div id="right">
+        <router-link to="/">Home</router-link>
+      </div>
+      <div id="left">
+        <router-link to="/cart">Cart</router-link>
+      </div>
     </div>
     <router-view />
     <div id="footer">
@@ -34,7 +37,24 @@ export default {
 }
 
 #nav {
+  display: flex;
   padding: 30px;
+  width: 95%;
+  margin: 0px 0px 30px 0px;
+  border: 2px solid black;
+  background-color: red;
+}
+
+#right {
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+#left {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 #nav a {
